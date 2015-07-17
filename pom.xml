@@ -10,7 +10,7 @@
 
     <!-- Versioning convention: {ixsiVersion}-{internalBuildNumber} -->
     <!-- With every IXSI version bump, the internal build number should start from 1 again -->
-    <version>0.9.3-2</version>
+    <version>0.9.3-3</version>
 
     <properties>
         <skipTests>true</skipTests>

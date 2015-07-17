@@ -27,7 +27,8 @@
         <jaxb:bindings multiple="true" node="xs:complexType[
         @name='BookingTargetIDType' or
         @name='ProviderPlaceIDType' or
-        @name='UserInfoType']">
+        @name='UserInfoType' or
+        @name='TransactionType']">
             <annox:annotateClass>@lombok.EqualsAndHashCode</annox:annotateClass>
             <annox:annotateClass>@lombok.ToString</annox:annotateClass>
         </jaxb:bindings>
