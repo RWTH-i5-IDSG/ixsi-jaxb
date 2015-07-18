@@ -10,7 +10,7 @@
 
     <!-- Versioning convention: {ixsiVersion}-{internalBuildNumber} -->
     <!-- With every IXSI version bump, the internal build number should start from 1 again -->
-    <version>0.9.3-3</version>
+    <version>0.9.3-4</version>
 
     <properties>
         <skipTests>true</skipTests>
@@ -43,7 +43,21 @@
     </distributionManagement>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+                <includes>
+                    <include>IXSI-with-enums.xsd</include>
+                </includes>
+            </resource>
+        </resources>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.7</version>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -68,9 +82,9 @@
                         </goals>
                         <phase>generate-sources</phase>
                         <configuration>
-                            <schemaDirectory>src/main/resources/ixsi</schemaDirectory>
+                            <schemaDirectory>src/main/resources</schemaDirectory>
                             <generateDirectory>${project.build.directory}/generated-sources</generateDirectory>
-                            <bindingDirectory>src/main/resources/ixsi</bindingDirectory>
+                            <bindingDirectory>src/main/resources</bindingDirectory>
                             <bindingIncludes>
                                 <value>IXSI.xjb</value>
                             </bindingIncludes>
@@ -129,12 +143,12 @@
                 <configuration>
                     <transformationSets>
                         <transformationSet>
-                            <dir>src/main/resources/ixsi</dir>
+                            <dir>src/main/resources</dir>
                             <includes>
                                 <include>IXSI.xsd</include>
                             </includes>
-                            <stylesheet>src/main/resources/ixsi/IXSI.xsl</stylesheet>
-                            <outputDir>src/main/resources/ixsi</outputDir>
+                            <stylesheet>src/main/resources/IXSI.xsl</stylesheet>
+                            <outputDir>src/main/resources</outputDir>
                             <fileMappers>
                                 <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
                                     <targetName>IXSI-with-enums.xsd</targetName>
