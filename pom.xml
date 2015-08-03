@@ -97,6 +97,47 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <!-- http://www.mojohaus.org/xml-maven-plugin/ -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>xml-maven-plugin</artifactId>
+                <version>1.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>transform</goal>
+                        </goals>
+                        <phase>generate-sources</phase>
+                    </execution>
+                </executions>
+                <configuration>
+                    <transformationSets>
+                        <transformationSet>
+                            <dir>src/main/resources</dir>
+                            <includes>
+                                <include>IXSI.xsd</include>
+                            </includes>
+                            <stylesheet>src/main/resources/IXSI.xsl</stylesheet>
+                            <outputDir>src/main/resources</outputDir>
+                            <fileMappers>
+                                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
+                                    <targetName>IXSI-with-enums.xsd</targetName>
+                                </fileMapper>
+                            </fileMappers>
+                        </transformationSet>
+
+                    </transformationSets>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>net.sf.saxon</groupId>
+                        <artifactId>Saxon-HE</artifactId>
+                        <version>9.6.0-4</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
             <plugin>
                 <groupId>org.jvnet.jaxb2.maven2</groupId>
                 <artifactId>maven-jaxb2-plugin</artifactId>
@@ -151,45 +192,6 @@
                         <groupId>org.projectlombok</groupId>
                         <artifactId>lombok</artifactId>
                         <version>${lombok.version}</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
-
-            <!-- http://www.mojohaus.org/xml-maven-plugin/ -->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>xml-maven-plugin</artifactId>
-                <version>1.0</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>transform</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <transformationSets>
-                        <transformationSet>
-                            <dir>src/main/resources</dir>
-                            <includes>
-                                <include>IXSI.xsd</include>
-                            </includes>
-                            <stylesheet>src/main/resources/IXSI.xsl</stylesheet>
-                            <outputDir>src/main/resources</outputDir>
-                            <fileMappers>
-                                <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.MergeFileMapper">
-                                    <targetName>IXSI-with-enums.xsd</targetName>
-                                </fileMapper>
-                            </fileMappers>
-                        </transformationSet>
-
-                    </transformationSets>
-                </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>net.sf.saxon</groupId>
-                        <artifactId>Saxon-HE</artifactId>
-                        <version>9.6.0-4</version>
                     </dependency>
                 </dependencies>
             </plugin>
