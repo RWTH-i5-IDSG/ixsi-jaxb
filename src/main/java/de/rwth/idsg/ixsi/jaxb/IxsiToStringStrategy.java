@@ -37,4 +37,20 @@ public class IxsiToStringStrategy extends JAXBToStringStrategy {
     protected void appendNullText(StringBuilder buffer) {
         buffer.append("null");
     }
+
+    /**
+     * In order to be compatible with Lombok's style
+     */
+    @Override
+    protected void appendContentStart(StringBuilder buffer) {
+        buffer.append('(');
+    }
+
+    /**
+     * In order to be compatible with Lombok's style
+     */
+    @Override
+    protected void appendContentEnd(StringBuilder buffer) {
+        buffer.append(')');
+    }
 }
