@@ -10,7 +10,7 @@
 
     <!-- Versioning convention: {ixsiVersion}-{internalBuildNumber} -->
     <!-- With every IXSI version bump, the internal build number should start from 1 again -->
-    <version>0.9.3-6</version>
+    <version>0.9.3-7</version>
 
     <properties>
         <skipTests>false</skipTests>
@@ -165,6 +165,7 @@
                                 <arg>-Xinheritance</arg>
                                 <arg>-Xfluent-api</arg>
                                 <arg>-Xannotate</arg>
+                                <arg>-XtoString-toStringStrategyClass=de.rwth.idsg.ixsi.jaxb.IxsiToStringStrategy</arg>
                                 <arg>-XtoString</arg>
                             </args>
                             <plugins>
@@ -188,6 +189,24 @@
                     </execution>
                 </executions>
                 <dependencies>
+
+                    <!--
+                    This is a workaround for the plugin to load the compiled IxsiToStringStrategy and
+                    reference it as 'IxsiToStringStrategy.INSTANCE' rather than 'new IxsiToStringStrategy()'
+                    in toString methods.
+
+                    For the behavior of the plugin, see:
+                    https://github.com/highsource/jaxb2-basics/blob/master/basic/src/main/java/org/jvnet/jaxb2_commons/plugin/util/StrategyClassUtils.java#L16-L54
+
+                    The reason for the workaround: Class.forName(strategyClassName) throws ClassNotFoundException,
+                    all generated sources will reference a new instance of the strategy object.
+                    -->
+                    <dependency>
+                        <groupId>de.rwth.idsg</groupId>
+                        <artifactId>ixsi-jaxb</artifactId>
+                        <version>0.9.3-6</version>
+                    </dependency>
+
                     <dependency>
                         <groupId>org.projectlombok</groupId>
                         <artifactId>lombok</artifactId>
