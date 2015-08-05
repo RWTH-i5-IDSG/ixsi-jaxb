@@ -54,6 +54,7 @@
             <xs:enumeration value="mini"/>
             <xs:enumeration value="small"/>
             <xs:enumeration value="medium"/>
+            <xs:enumeration value="large"/>
             <xs:enumeration value="van"/>
             <xs:enumeration value="transporter"/>
         </xsl:copy>
@@ -67,6 +68,7 @@
             <xs:enumeration value="gasoline"/>
             <xs:enumeration value="electric"/>
             <xs:enumeration value="liquidgas"/>
+            <xs:enumeration value="naturalgas"/>
             <xs:enumeration value="hydrogen"/>
             <xs:enumeration value="hybrid"/>
         </xsl:copy>

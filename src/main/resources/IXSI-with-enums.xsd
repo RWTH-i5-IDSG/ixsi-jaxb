@@ -418,13 +418,13 @@
 		<xs:annotation>
 			<xs:documentation>Enumeration for car classes.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:token"><xs:enumeration value="bike"/><xs:enumeration value="motorcycle"/><xs:enumeration value="micro"/><xs:enumeration value="mini"/><xs:enumeration value="small"/><xs:enumeration value="medium"/><xs:enumeration value="van"/><xs:enumeration value="transporter"/></xs:restriction>
+		<xs:restriction base="xs:token"><xs:enumeration value="bike"/><xs:enumeration value="motorcycle"/><xs:enumeration value="micro"/><xs:enumeration value="mini"/><xs:enumeration value="small"/><xs:enumeration value="medium"/><xs:enumeration value="large"/><xs:enumeration value="van"/><xs:enumeration value="transporter"/></xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="EngineType">
 		<xs:annotation>
 			<xs:documentation>Enumeration for engines.</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="xs:token"><xs:enumeration value="none"/><xs:enumeration value="diesel"/><xs:enumeration value="gasoline"/><xs:enumeration value="electric"/><xs:enumeration value="liquidgas"/><xs:enumeration value="hydrogen"/><xs:enumeration value="hybrid"/></xs:restriction>
+		<xs:restriction base="xs:token"><xs:enumeration value="none"/><xs:enumeration value="diesel"/><xs:enumeration value="gasoline"/><xs:enumeration value="electric"/><xs:enumeration value="liquidgas"/><xs:enumeration value="naturalgas"/><xs:enumeration value="hydrogen"/><xs:enumeration value="hybrid"/></xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="AttributeClassType">
 		<xs:annotation>
