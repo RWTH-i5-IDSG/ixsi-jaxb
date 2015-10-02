@@ -185,7 +185,7 @@
         @name='PriceInformationRequestType' or
         @name='BookingRequestType' or
         @name='ChangeBookingRequestType' or
-        @name='BookingUnlockRequestType' or
+        @name='ChangeBookingStateRequestType' or
         @name='CreateUserRequestType' or
         @name='ChangeUserRequestType']">
             <inheritance:implements>de.rwth.idsg.ixsi.jaxb.UserTriggeredRequestChoice</inheritance:implements>
@@ -200,7 +200,7 @@
         @name='PriceInformationResponseType' or
         @name='BookingResponseType' or
         @name='ChangeBookingResponseType' or
-        @name='BookingUnlockResponseType' or
+        @name='ChangeBookingStateResponseType' or
         @name='CreateUserResponseType' or
         @name='ChangeUserResponseType']">
             <inheritance:implements>de.rwth.idsg.ixsi.jaxb.UserTriggeredResponseChoice</inheritance:implements>
