@@ -10,7 +10,7 @@
 
     <!-- Versioning convention: {ixsiVersion}-{internalBuildNumber} -->
     <!-- With every IXSI version bump, the internal build number should start from 1 again -->
-    <version>0.10-1</version>
+    <version>0.10-2</version>
 
     <properties>
         <skipTests>false</skipTests>
@@ -52,6 +52,14 @@
             <url>https://treibhaus.informatik.rwth-aachen.de/nexus/repository/internal/</url>
         </repository>
     </distributionManagement>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>TreibhausNexus</id>
+            <name>RWTH IDSG Nexus Repository</name>
+            <url>https://treibhaus.informatik.rwth-aachen.de/nexus/repository/internal/</url>
+        </pluginRepository>
+    </pluginRepositories>
 
     <build>
         <resources>
@@ -204,7 +212,7 @@
                     <dependency>
                         <groupId>de.rwth.idsg</groupId>
                         <artifactId>ixsi-jaxb</artifactId>
-                        <version>0.9.3-6</version>
+                        <version>0.9.3-7</version>
                     </dependency>
 
                     <dependency>
