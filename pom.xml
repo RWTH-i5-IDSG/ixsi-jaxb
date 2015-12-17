@@ -10,11 +10,11 @@
 
     <!-- Versioning convention: {ixsiVersion}-{internalBuildNumber} -->
     <!-- With every IXSI version bump, the internal build number should start from 1 again -->
-    <version>0.10-2</version>
+    <version>0.10-3</version>
 
     <properties>
         <skipTests>false</skipTests>
-        <java.version>1.7</java.version>
+        <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <lombok.version>1.16.2</lombok.version>
     </properties>

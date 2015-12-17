@@ -10,13 +10,21 @@ public class NonNegativeIntConverter extends XmlAdapter<String, Integer> {
 
     @Override
     public Integer unmarshal(String str) throws Exception {
-        Integer i = Integer.valueOf(str);
-        return validate(i);
+        if (str == null) {
+            return null;
+        } else {
+            Integer i = Integer.valueOf(str);
+            return validate(i);
+        }
     }
 
     @Override
     public String marshal(Integer i) throws Exception {
-        return String.valueOf(validate(i));
+        if (i == null) {
+            return null;
+        } else {
+            return String.valueOf(validate(i));
+        }
     }
 
     private Integer validate(Integer i) {

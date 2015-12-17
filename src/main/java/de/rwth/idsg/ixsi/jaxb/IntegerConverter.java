@@ -13,11 +13,19 @@ import javax.xml.bind.annotation.adapters.XmlAdapter;
 public class IntegerConverter extends XmlAdapter<String, Integer> {
     @Override
     public Integer unmarshal(String v) throws Exception {
-        return new Integer(v);
+        if (v == null) {
+            return null;
+        } else {
+            return new Integer(v);
+        }
     }
 
     @Override
     public String marshal(Integer v) throws Exception {
-        return (v == null) ? null : String.valueOf(v);
+        if (v == null) {
+            return null;
+        } else {
+            return String.valueOf(v);
+        }
     }
 }

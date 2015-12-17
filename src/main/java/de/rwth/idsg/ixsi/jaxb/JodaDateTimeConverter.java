@@ -14,11 +14,19 @@ public class JodaDateTimeConverter extends XmlAdapter<String, DateTime> {
 
     @Override
     public DateTime unmarshal(String v) throws Exception {
-        return new DateTime(v);
+        if (v == null || v.isEmpty()) {
+            return null;
+        } else {
+            return new DateTime(v);
+        }
     }
 
     @Override
     public String marshal(DateTime v) throws Exception {
-        return v.toString();
+        if (v == null) {
+            return null;
+        } else {
+            return v.toString();
+        }
     }
 }
