@@ -13,7 +13,7 @@ import javax.xml.bind.annotation.adapters.XmlAdapter;
 public class IntegerConverter extends XmlAdapter<String, Integer> {
     @Override
     public Integer unmarshal(String v) throws Exception {
-        if (v == null) {
+        if (StringUtils.isNullOrEmpty(v)) {
             return null;
         } else {
             return new Integer(v);

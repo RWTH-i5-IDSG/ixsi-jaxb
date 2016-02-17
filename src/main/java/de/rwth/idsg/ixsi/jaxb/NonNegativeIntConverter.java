@@ -10,7 +10,7 @@ public class NonNegativeIntConverter extends XmlAdapter<String, Integer> {
 
     @Override
     public Integer unmarshal(String str) throws Exception {
-        if (str == null) {
+        if (StringUtils.isNullOrEmpty(str)) {
             return null;
         } else {
             Integer i = Integer.valueOf(str);

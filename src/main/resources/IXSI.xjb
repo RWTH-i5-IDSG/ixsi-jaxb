@@ -18,6 +18,9 @@
         <xjc:javaType name="java.lang.Integer" xmlType="xs:integer"
                       adapter="de.rwth.idsg.ixsi.jaxb.IntegerConverter" />
 
+        <xjc:javaType name="org.joda.time.Period" xmlType="xs:duration"
+                      adapter="de.rwth.idsg.ixsi.jaxb.JodaPeriodConverter" />
+
     </jaxb:globalBindings>
 
     <jaxb:bindings schemaLocation="IXSI-with-enums.xsd" node="/xs:schema">

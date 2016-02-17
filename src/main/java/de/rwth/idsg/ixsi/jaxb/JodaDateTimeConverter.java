@@ -14,7 +14,7 @@ public class JodaDateTimeConverter extends XmlAdapter<String, DateTime> {
 
     @Override
     public DateTime unmarshal(String v) throws Exception {
-        if (v == null || v.isEmpty()) {
+        if (StringUtils.isNullOrEmpty(v)) {
             return null;
         } else {
             return new DateTime(v);
