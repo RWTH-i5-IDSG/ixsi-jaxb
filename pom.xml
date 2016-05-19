@@ -10,7 +10,7 @@
 
     <!-- Versioning convention: {ixsiVersion}-{internalBuildNumber} -->
     <!-- With every IXSI version bump, the internal build number should start from 1 again -->
-    <version>0.10-4</version>
+    <version>0.10-5</version>
 
     <properties>
         <skipTests>false</skipTests>
@@ -43,7 +43,26 @@
             <artifactId>jaxb2-basics-runtime</artifactId>
             <version>0.9.4</version>
         </dependency>
+
+        <!-- Needed for the annotation processing -->
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+            <version>3.0.1</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>TreibhausNexus</id>
+            <name>RWTH IDSG Nexus Repository</name>
+            <url>https://treibhaus.informatik.rwth-aachen.de/nexus/repository/maven-public/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
     <distributionManagement>
         <repository>
@@ -52,14 +71,6 @@
             <url>https://treibhaus.informatik.rwth-aachen.de/nexus/repository/maven-public/</url>
         </repository>
     </distributionManagement>
-
-    <pluginRepositories>
-        <pluginRepository>
-            <id>TreibhausNexus</id>
-            <name>RWTH IDSG Nexus Repository</name>
-            <url>https://treibhaus.informatik.rwth-aachen.de/nexus/repository/maven-public/</url>
-        </pluginRepository>
-    </pluginRepositories>
 
     <build>
         <resources>
@@ -149,7 +160,7 @@
             <plugin>
                 <groupId>org.jvnet.jaxb2.maven2</groupId>
                 <artifactId>maven-jaxb2-plugin</artifactId>
-                <version>0.12.3</version>
+                <version>0.13.0</version>
                 <executions>
                     <execution>
                         <goals>
@@ -170,6 +181,7 @@
                             <removeOldOutput>true</removeOldOutput>
                             <extension>true</extension>
                             <args>
+                                <arg>-XNullable</arg>
                                 <arg>-Xinheritance</arg>
                                 <arg>-Xfluent-api</arg>
                                 <arg>-Xannotate</arg>
@@ -191,6 +203,12 @@
                                     <groupId>org.jvnet.jaxb2_commons</groupId>
                                     <artifactId>jaxb2-basics-annotate</artifactId>
                                     <version>1.0.1</version>
+                                </plugin>
+                                <!-- https://github.com/HamletDRC/JaxbNullablePlugin -->
+                                <plugin>
+                                    <groupId>com.github.jaxb2.plugin</groupId>
+                                    <artifactId>JaxbNullablePlugin</artifactId>
+                                    <version>1.0.1-SNAPSHOT</version>
                                 </plugin>
                             </plugins>
                         </configuration>
@@ -220,6 +238,15 @@
                         <artifactId>lombok</artifactId>
                         <version>${lombok.version}</version>
                     </dependency>
+
+                    <!-- Needed for the annotation processing -->
+                    <dependency>
+                        <groupId>com.google.code.findbugs</groupId>
+                        <artifactId>jsr305</artifactId>
+                        <version>3.0.1</version>
+                        <scope>compile</scope>
+                    </dependency>
+
                 </dependencies>
             </plugin>
         </plugins>
